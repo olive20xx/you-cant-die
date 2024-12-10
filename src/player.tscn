@@ -22,11 +22,11 @@ shape = SubResource("CircleShape2D_0wdoi")
 [node name="Shields" type="Node2D" parent="."]
 script = ExtResource("3_t4mvq")
 
-[node name="TopLeft" type="Area2D" parent="Shields"]
+[node name="TopLeft" type="CharacterBody2D" parent="Shields"]
 position = Vector2(-27, -30)
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
-collision_mask = 4
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Shields/TopLeft"]
 texture = ExtResource("3_ml8mk")
@@ -37,7 +37,7 @@ region_rect = Rect2(0, 0, 40.7364, 46.7832)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shields/TopLeft"]
 polygon = PackedVector2Array(-21, 18, -21, 18, 12, -23, 1, -22, -7, -16, -23, 2)
 
-[node name="TopRight" type="Area2D" parent="Shields"]
+[node name="TopRight" type="CharacterBody2D" parent="Shields"]
 position = Vector2(33, -30)
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
@@ -52,11 +52,11 @@ frame = 1
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shields/TopRight"]
 polygon = PackedVector2Array(-21, -22, -1, -22, 11, -13, 24, 8, 24, 18, 21, 18)
 
-[node name="BotLeft" type="Area2D" parent="Shields"]
+[node name="BotLeft" type="CharacterBody2D" parent="Shields"]
 position = Vector2(-29, 33)
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
-collision_mask = 4
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Shields/BotLeft"]
 texture = ExtResource("3_ml8mk")
@@ -67,7 +67,7 @@ frame = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shields/BotLeft"]
 polygon = PackedVector2Array(-20, -24, -20, -10, -13, 5, -2, 13, 9, 19, 24, 20, 25, 17, -17, -25)
 
-[node name="BotRight" type="Area2D" parent="Shields"]
+[node name="BotRight" type="CharacterBody2D" parent="Shields"]
 position = Vector2(36, 33)
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
@@ -81,3 +81,14 @@ frame = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shields/BotRight"]
 polygon = PackedVector2Array(-20, 20, -2, 19, 7, 15, 15, 7, 20, -6, 18, -19)
+
+[node name="HealTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HealTimerLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -74.0
+offset_right = 20.0
+offset_bottom = -51.0
+horizontal_alignment = 1
+vertical_alignment = 1
