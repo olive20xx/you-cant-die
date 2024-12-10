@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cerrrbghwadfv"]
+
+[ext_resource type="PackedScene" uid="uid://761dy3ureg4v" path="res://src/player.tscn" id="1_5ailh"]
+[ext_resource type="PackedScene" uid="uid://2lttufk48tpl" path="res://src/heart.tscn" id="3_g04wc"]
+[ext_resource type="PackedScene" uid="uid://dmijr4ijtjobo" path="res://src/lightning.tscn" id="3_nl6vi"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5ailh")]
+position = Vector2(646, 336)
+
+[node name="Lightning" parent="." instance=ExtResource("3_nl6vi")]
+position = Vector2(672, 264)
+
+[node name="Heart" parent="." instance=ExtResource("3_g04wc")]
+position = Vector2(624, 256)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://2lttufk48tpl"]
+
+[ext_resource type="Texture2D" uid="uid://b4a8s0c0i4fta" path="res://assets/heart.png" id="1_iothu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_un2wf"]
+bounce = 0.5
+
+[node name="Heart" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_un2wf")
+gravity_scale = 0.0
+can_sleep = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iothu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -7, 3, -11, 9, -11, 13, -7, 13, -1, 0, 11, -13, -1, -13, -7, -9, -11, -3, -11)
