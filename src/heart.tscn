@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b4a8s0c0i4fta" path="res://assets/heart.png" id="1_iothu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_un2wf"]
+friction = 0.0
 bounce = 0.5
 
 [node name="Heart" type="RigidBody2D"]

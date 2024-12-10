@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmijr4ijtjobo"]
+[gd_scene load_steps=3 format=3 uid="uid://dmijr4ijtjobo"]
 
 [ext_resource type="Texture2D" uid="uid://kf3m74xg44x4" path="res://assets/lightning.png" id="1_a15qn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qiqv5"]
+friction = 0.0
+bounce = 0.5
 
 [node name="Lightning" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_qiqv5")
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
