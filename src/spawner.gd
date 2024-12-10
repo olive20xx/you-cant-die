@@ -9,16 +9,6 @@ const LIGHTNING = preload("res://src/lightning.tscn")
 @onready var player: Player = %Player
 
 
-# func _ready() -> void:
-# 	spawn(HEART)
-# 	spawn(LIGHTNING)
-# 	spawn(HEART)
-# 	spawn(HEART)
-# 	spawn(HEART)
-# 	spawn(HEART)
-# 	spawn(HEART)
-
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("heal"):
 		spawn(LIGHTNING)
@@ -35,11 +25,18 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func spawn(item: Resource) -> void:
 	var scene := item.instantiate() as RigidBody2D
-	scene.position = get_random_position_ONscreen()
+	scene.position = get_random_position_OFFscreen()
 	var direction_to_player := scene.position.direction_to(player.position)
-	scene.apply_central_impulse(direction_to_player * 2000)
+	var impulse_direction := get_random_rotation(direction_to_player, 0.25)
+	scene.apply_central_impulse(impulse_direction * 2000)
 	scene.apply_torque_impulse(10)
 	add_child(scene)
+
+
+func get_random_rotation(dir_to_player: Vector2, half_firing_arc_radians: float) -> Vector2:
+	var final := dir_to_player
+	var angle := randf_range(-half_firing_arc_radians, half_firing_arc_radians)
+	return final.rotated(angle)
 
 
 func get_random_position_ONscreen() -> Vector2:
