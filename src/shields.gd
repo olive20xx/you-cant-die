@@ -13,7 +13,7 @@ enum Shield {
 @onready var bot_left: CharacterBody2D = $BotLeft
 @onready var bot_right: CharacterBody2D = $BotRight
 
-@onready var shields: Array[CharacterBody2D] = [top_left, top_right, bot_left, bot_right]
+@onready var _shields: Array[CharacterBody2D] = [top_left, top_right, bot_left, bot_right]
 
 
 func enable_random() -> void:
@@ -27,8 +27,8 @@ func disable_random() -> void:
 
 
 func enable(index: Shield) -> void:
-	shields[index].show()
+	_shields[index].show()
 
 
 func disable(index: Shield) -> void:
-	shields[index].hide()
+	_shields[index].hide()

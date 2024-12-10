@@ -6,6 +6,9 @@ extends CharacterBody2D
 const HEAL_TIME = 1.5
 const SPEED = 300.0
 
+@export var debug_shields_start_up := false
+@export var debug_show_heal_timer := false
+
 var can_move := true
 
 @onready var shields: Shields = $Shields
@@ -28,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	debug_update_heal_timer_label()
+	debug_process()
 	
 	if can_move:
 		move()
@@ -55,6 +58,18 @@ func move() -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 
 	move_and_slide()
+
+
+func debug_ready() -> void:
+	if debug_shields_start_up:
+		for shield in range(4):
+			shields.enable(shield)
+	if debug_show_heal_timer:
+		heal_timer_label.show()
+
+func debug_process() -> void:
+	if debug_show_heal_timer:
+		debug_update_heal_timer_label()
 
 
 func debug_update_heal_timer_label() -> void:
