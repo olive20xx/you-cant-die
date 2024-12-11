@@ -1,6 +1,12 @@
 class_name Spawner
 extends Node2D
 
+# TODO: learn about sin functions to make the spawning patterns
+# amplitude, frequency, etc
+
+const MIN_IMPULSE = 800
+const MAX_IMPULSE = 1500
+
 const HEART = preload("res://src/heart.tscn")
 const LIGHTNING = preload("res://src/lightning.tscn")
 
@@ -28,7 +34,8 @@ func spawn(item: Resource) -> void:
 	scene.position = get_random_position_OFFscreen()
 	var direction_to_player := scene.position.direction_to(player.position)
 	var impulse_direction := get_random_rotation(direction_to_player, 0.25)
-	scene.apply_central_impulse(impulse_direction * 2000)
+	var speed := randf_range(MIN_IMPULSE, MAX_IMPULSE)
+	scene.apply_central_impulse(impulse_direction * speed)
 	scene.apply_torque_impulse(10)
 	add_child(scene)
 
